@@ -17,6 +17,11 @@ const initialTodos = [
 
 function App() {
   const [todos, setTodos] = useState(initialTodos)
+  const [searchValue, setSearchValue] = useState('')
+
+  const handleChange = (e) => {
+    setSearchValue(e.target.value)
+  }
 
   const completeTask = (text) => {
     const searchTodo = [...todos]
@@ -25,14 +30,28 @@ function App() {
     setTodos(searchTodo)
     console.log(indexTodo, searchTodo)
   }
+
+  let resultList = []
+
+  if (!searchValue.length >= 1) {
+    resultList = todos
+  } else {
+    resultList = todos.filter((todo) => {
+      const todoTex = todo.text.toLocaleLowerCase()
+      const searchText = searchValue.toLocaleLowerCase()
+
+      return todoTex.includes(searchText)
+    })
+  }
+
   return (
     <main className='todo__container'>
       <TodoCounter todos={todos} />
 
-      <TodoSearch />
+      <TodoSearch handleChange={handleChange} searchValue={searchValue} />
 
       <TodoList>
-        {todos.map((todo, index) => (
+        {resultList.map((todo, index) => (
           <TodoItem
             key={index}
             text={todo.text}
