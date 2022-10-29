@@ -1,0 +1,37 @@
+.todo__search {
+  padding: 10px;
+  color: #eee;
+  border-radius: 12px;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto;
+  border: 2px solid rgba(189, 101, 101, 0.47);
+}
+
+.todo__search :is(input, button) {
+  color: var(--text-color);
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+.todo__search .todo__search--btn {
+  color: var(--primary-color-icon);
+}
+
+.todo__search--input {
+  font-size: 1rem;
+  transition: width 0.5s ease-in;
+}
+
+.todo__search--btn {
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+::placeholder {
+  color: inherit;
+}
