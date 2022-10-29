@@ -25,3 +25,9 @@
 .todo__item--right {
   column-gap: 2rem;
 }
+
+.completed {
+  transition: color 0.5s ease-in;
+  color: var(--check-color);
+  text-decoration: line-through;
+}

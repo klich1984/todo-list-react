@@ -4,14 +4,17 @@ import IconCheck from '../assets/iconComponents/IconCheck'
 import IconDelete from '../assets/iconComponents/IconDelete'
 import IconEdit from '../assets/iconComponents/IconEdit'
 
-const TodoItem = ({ text }) => {
+const TodoItem = ({ text, completed, onComplete }) => {
   return (
     <li className='todo__item--container'>
       <div className='todo__item--left'>
-        <span className='todo__item--check todo__color-icon'>
+        <span
+          className={`todo__item--check todo__color-icon ${completed ? 'completed' : ''}`}
+          onClick={onComplete}
+        >
           <IconCheck />
         </span>
-        <p className='todo__item--text'>{text}</p>
+        <p className={`todo__item--text ${completed ? 'completed' : ''}`}>{text}</p>
       </div>
       <div className='todo__item--right'>
         <span className='todo__item--edit todo__color-icon'>
