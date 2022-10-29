@@ -23,14 +23,26 @@ function App() {
     setSearchValue(e.target.value)
   }
 
+  // Complete Todo
   const completeTask = (text) => {
     const searchTodo = [...todos]
     const indexTodo = searchTodo.findIndex((todo) => todo.text === text)
     searchTodo[indexTodo].completed = true
     setTodos(searchTodo)
-    console.log(indexTodo, searchTodo)
   }
 
+  // Delete Todo
+  const hendleDelete = (text) => {
+    let confirmationDelete = window.confirm(`Estas Segur@ de eliminar la tarea: ${text}`)
+    if (!confirmationDelete) return
+
+    const copyTodo = [...todos]
+    const indexTodo = copyTodo.findIndex((todo) => todo.text === text)
+    copyTodo.splice(indexTodo, 1)
+    setTodos(copyTodo)
+  }
+
+  // Search Todo
   let resultList = []
 
   if (!searchValue.length >= 1) {
@@ -57,6 +69,7 @@ function App() {
             text={todo.text}
             completed={todo.completed}
             onComplete={() => completeTask(todo.text)}
+            hendleDelete={() => hendleDelete(todo.text)}
           />
         ))}
       </TodoList>
