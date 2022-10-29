@@ -2,6 +2,6 @@
   padding-inline: 1rem;
   margin-inline: auto;
   margin-block-start: 3rem;
-  height: 100vh;
+  height: auto;
   max-width: 600px;
 }
