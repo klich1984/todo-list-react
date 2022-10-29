@@ -1,9 +1,15 @@
 import './TodoCounter.css'
 
-const TodoCounter = () => {
+const TodoCounter = ({ todos }) => {
+  const quantity = todos.length
+
+  const completedTask = todos.filter((todo) => !!todo.completed) // Es equivalente a todo.completed === true
+
   return (
     <>
-      <h2 className='todo__title--counter'>Has completado 2 de 3 Tareas</h2>
+      <h2 className='todo__title--counter'>
+        Has completado {completedTask.length} de {quantity} Tareas
+      </h2>
     </>
   )
 }

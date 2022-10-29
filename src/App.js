@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 
 import CreateTodoButton from './components/CreateTodoButton'
@@ -7,7 +8,7 @@ import TodoList from './components/TodoList'
 import TodoSearch from './components/TodoSearch'
 
 // lista de todos
-const todos = [
+const initialTodos = [
   { text: 'Primera Tarea', completed: false },
   { text: 'Segunda Tarea', completed: false },
   { text: 'Tercera Tarea', completed: false },
@@ -15,9 +16,10 @@ const todos = [
 ]
 
 function App() {
+  const [todos, setTodos] = useState(initialTodos)
   return (
     <main className='todo__container'>
-      <TodoCounter />
+      <TodoCounter todos={todos} />
       <TodoSearch />
       <TodoList>
         {todos.map((todo, index) => (
