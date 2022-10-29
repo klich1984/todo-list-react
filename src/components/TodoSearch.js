@@ -5,7 +5,7 @@ const TodoSearch = () => {
   return (
     <div className='todo__search'>
       <input className='todo__search--input' placeholder='Buscar una tarea' id='search' />
-      <label className='todo__search--btn' for='search'>
+      <label className='todo__search--btn' htmlFor='search'>
         <IconSearch />
       </label>
     </div>
