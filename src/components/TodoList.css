@@ -1,0 +1,9 @@
+.todo__list--container ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 1rem;
+  max-width: 500px;
+  padding: 0;
+  margin-inline: auto;
+}

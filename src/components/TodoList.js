@@ -1,9 +1,9 @@
+import './TodoList.css'
+
 const TodoList = ({ children }) => {
   return (
-    <section>
-      <ul>
-        { children }
-      </ul>
+    <section className='todo__list--container'>
+      <ul>{children}</ul>
     </section>
   )
 }
