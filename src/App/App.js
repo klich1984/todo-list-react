@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import './App.css'
 
-import CreateTodoButton from './components/CreateTodoButton'
-import EmptyList from './components/EmptyList'
-import TodoCounter from './components/TodoCounter'
-import TodoItem from './components/TodoItem'
-import TodoList from './components/TodoList'
-import TodoSearch from './components/TodoSearch'
+import CreateTodoButton from '../components/CreateTodoButton/CreateTodoButton'
+import EmptyList from '../components/EmptyList/EmptyList'
+import TodoCounter from '../components/TodoCounter/TodoCounter'
+import TodoItem from '../components/TodoItem/TodoItem'
+import TodoList from '../components/TodoList/TodoList'
+import TodoSearch from '../components/TodoSearch/TodoSearch'
 
 // lista de todos
 const initialTodos = [

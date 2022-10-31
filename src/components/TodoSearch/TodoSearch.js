@@ -1,5 +1,5 @@
 import './TodoSearch.css'
-import IconSearch from '../assets/iconComponents/IconSearch'
+import IconSearch from '../../assets/iconComponents/IconSearch'
 
 const TodoSearch = ({ searchValue, handleChange }) => {
   return (

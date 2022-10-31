@@ -1,8 +1,8 @@
 import './TodoItem.css'
 
-import IconCheck from '../assets/iconComponents/IconCheck'
-import IconDelete from '../assets/iconComponents/IconDelete'
-import IconEdit from '../assets/iconComponents/IconEdit'
+import IconCheck from '../../assets/iconComponents/IconCheck'
+import IconDelete from '../../assets/iconComponents/IconDelete'
+import IconEdit from '../../assets/iconComponents/IconEdit'
 
 const TodoItem = ({ text, completed, onComplete, hendleDelete }) => {
   return (
