@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 import CreateTodoButton from './components/CreateTodoButton'
+import EmptyList from './components/EmptyList'
 import TodoCounter from './components/TodoCounter'
 import TodoItem from './components/TodoItem'
 import TodoList from './components/TodoList'
@@ -73,6 +74,8 @@ function App() {
           />
         ))}
       </TodoList>
+
+      {resultList.length === 0 ? <EmptyList /> : ''}
 
       <CreateTodoButton />
     </main>
