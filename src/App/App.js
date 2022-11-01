@@ -7,6 +7,7 @@ import TodoCounter from '../components/TodoCounter/TodoCounter'
 import TodoItem from '../components/TodoItem/TodoItem'
 import TodoList from '../components/TodoList/TodoList'
 import TodoSearch from '../components/TodoSearch/TodoSearch'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 // lista de todos
 // const initialTodos = [
@@ -17,36 +18,14 @@ import TodoSearch from '../components/TodoSearch/TodoSearch'
 // ]
 
 function App() {
-  // Localstorage
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1', [])
 
-  const localStorageTodos = localStorage.getItem('TODOS_V1') || []
-  let parseTodos = []
-
-  if (localStorageTodos.length === 0) {
-    // No hay datos
-    localStorage.setItem('TODOS_V1', JSON.stringify([]))
-    parseTodos = []
-  } else {
-    // Si hay datos
-    parseTodos = JSON.parse(localStorageTodos)
-  }
-
-  const [todos, setTodos] = useState(parseTodos)
   const [searchValue, setSearchValue] = useState('')
 
   const handleChange = (e) => {
     setSearchValue(e.target.value)
   }
 
-  // Save todos Localstorage
-  const saveTodos = (listTodos) => {
-    let stringifyTodoList = JSON.stringify(listTodos)
-    localStorage.setItem('TODOS_V1', stringifyTodoList)
-
-    setTodos(listTodos)
-  }
-
-  // Complete Todo
   const completeTask = (text) => {
     const searchTodo = [...todos]
     const indexTodo = searchTodo.findIndex((todo) => todo.text === text)
