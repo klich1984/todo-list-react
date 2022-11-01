@@ -9,19 +9,41 @@ import TodoList from '../components/TodoList/TodoList'
 import TodoSearch from '../components/TodoSearch/TodoSearch'
 
 // lista de todos
-const initialTodos = [
-  { text: 'Primera Tarea', completed: false },
-  { text: 'Segunda Tarea', completed: false },
-  { text: 'Tercera Tarea', completed: false },
-  { text: 'Cuarta Tarea', completed: false },
-]
+// const initialTodos = [
+//   { text: 'Primera Tarea', completed: false },
+//   { text: 'Segunda Tarea', completed: false },
+//   { text: 'Tercera Tarea', completed: false },
+//   { text: 'Cuarta Tarea', completed: false },
+// ]
 
 function App() {
-  const [todos, setTodos] = useState(initialTodos)
+  // Localstorage
+
+  const localStorageTodos = localStorage.getItem('TODOS_V1') || []
+  let parseTodos = []
+
+  if (localStorageTodos.length === 0) {
+    // No hay datos
+    localStorage.setItem('TODOS_V1', JSON.stringify([]))
+    parseTodos = []
+  } else {
+    // Si hay datos
+    parseTodos = JSON.parse(localStorageTodos)
+  }
+
+  const [todos, setTodos] = useState(parseTodos)
   const [searchValue, setSearchValue] = useState('')
 
   const handleChange = (e) => {
     setSearchValue(e.target.value)
+  }
+
+  // Save todos Localstorage
+  const saveTodos = (listTodos) => {
+    let stringifyTodoList = JSON.stringify(listTodos)
+    localStorage.setItem('TODOS_V1', stringifyTodoList)
+
+    setTodos(listTodos)
   }
 
   // Complete Todo
@@ -29,7 +51,7 @@ function App() {
     const searchTodo = [...todos]
     const indexTodo = searchTodo.findIndex((todo) => todo.text === text)
     searchTodo[indexTodo].completed = true
-    setTodos(searchTodo)
+    saveTodos(searchTodo)
   }
 
   // Delete Todo
@@ -40,7 +62,7 @@ function App() {
     const copyTodo = [...todos]
     const indexTodo = copyTodo.findIndex((todo) => todo.text === text)
     copyTodo.splice(indexTodo, 1)
-    setTodos(copyTodo)
+    saveTodos(copyTodo)
   }
 
   // Search Todo
