@@ -29,7 +29,7 @@ export default function useLocalStorage(itemName, initialValue) {
         setLoading(false)
       }
     }, 3000)
-  })
+  }, [])
 
   // Save todos Localstorage
   const saveItem = (newItem) => {

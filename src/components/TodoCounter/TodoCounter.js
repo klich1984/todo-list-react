@@ -1,6 +1,9 @@
+import { useContext } from 'react'
+import TodoContext from '../../context/TodosContext'
 import './TodoCounter.css'
 
-const TodoCounter = ({ todos }) => {
+const TodoCounter = () => {
+  const { todos } = useContext(TodoContext)
   const quantity = todos.length
 
   const completedTask = todos.filter((todo) => !!todo.completed) // Es equivalente a todo.completed === true

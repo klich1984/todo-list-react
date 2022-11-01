@@ -1,7 +1,11 @@
 import './TodoSearch.css'
 import IconSearch from '../../assets/iconComponents/IconSearch'
+import { useContext } from 'react'
+import TodoContext from '../../context/TodosContext'
 
-const TodoSearch = ({ searchValue, handleChange }) => {
+const TodoSearch = () => {
+  const { searchValue, handleChange } = useContext(TodoContext)
+
   return (
     <div className='todo__search'>
       <input
