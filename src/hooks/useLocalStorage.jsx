@@ -1,28 +1,47 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function useLocalStorage(itemName, initialValue) {
-  // Localstorage
-  const localStorageItem = localStorage.getItem(itemName) || null
-  let parceItems = []
+  const [item, setItem] = useState(initialValue)
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(true)
 
-  if (localStorageItem.length === 0) {
-    // No hay datos
-    localStorage.setItem(itemName, JSON.stringify(initialValue))
-    parceItems = initialValue
-  } else {
-    // Si hay datos
-    parceItems = JSON.parse(localStorageItem)
-  }
+  useEffect(() => {
+    setTimeout(() => {
+      try {
+        // Localstorage
+        const localStorageItem = localStorage.getItem(itemName) || null
+        let parceItems = []
 
-  const [item, setItem] = useState(parceItems)
+        if (localStorageItem.length === 0) {
+          // No hay datos
+          localStorage.setItem(itemName, JSON.stringify(initialValue))
+          parceItems = initialValue
+        } else {
+          // Si hay datos
+          parceItems = JSON.parse(localStorageItem)
+        }
+
+        setItem(parceItems)
+      } catch (err) {
+        // En caso de un error lo guardamos en el estado
+        setError(`Ha ocurrido el siguiente error: ${err}`)
+      } finally {
+        setLoading(false)
+      }
+    }, 3000)
+  })
 
   // Save todos Localstorage
-  const saveItem = (listItem) => {
-    let stringifyItem = JSON.stringify(listItem)
-    localStorage.setItem(itemName, stringifyItem)
+  const saveItem = (newItem) => {
+    try {
+      let stringifyItem = JSON.stringify(newItem)
+      localStorage.setItem(itemName, stringifyItem)
+    } catch (err) {
+      setError(`Ha ocurrido el siguiente error: ${err}`)
+    }
 
-    setItem(listItem)
+    setItem(newItem)
   }
 
-  return [item, saveItem]
+  return { item, saveItem, loading, error }
 }
