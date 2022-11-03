@@ -8,10 +8,10 @@ import TodoList from '../components/TodoList/TodoList'
 import TodoSearch from '../components/TodoSearch/TodoSearch'
 import { useContext } from 'react'
 import TodoContext from '../context/TodosContext'
+import Modal from '../components/Modal/Modal'
 
 function App() {
-  console.log('first')
-  const { error, loading, resultList, completeTask, handleDelete } =
+  const { error, loading, resultList, completeTask, handleDelete, modal } =
     useContext(TodoContext)
   return (
     <main className='todo__container'>
@@ -43,6 +43,8 @@ function App() {
       {!resultList.length && !loading && <EmptyList />}
 
       <CreateTodoButton />
+
+      {modal && <Modal>Hello</Modal>}
     </main>
   )
 }

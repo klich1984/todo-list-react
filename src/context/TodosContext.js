@@ -13,6 +13,8 @@ const TodoProvider = ({ children }) => {
   } = useLocalStorage('TODOS_V1', [])
 
   const [searchValue, setSearchValue] = useState('')
+  const [modal, setModal] = useState(false)
+  const [openModal, setOpenModal] = useState(false)
 
   const handleChange = (e) => {
     setSearchValue(e.target.value)
@@ -50,6 +52,12 @@ const TodoProvider = ({ children }) => {
     })
   }
 
+  const createTodo = () => {
+    console.log('Crear todo')
+    setModal(!modal)
+    setOpenModal(!openModal)
+  }
+
   const data = {
     todos,
     saveTodos,
@@ -60,6 +68,10 @@ const TodoProvider = ({ children }) => {
     completeTask,
     resultList,
     searchValue,
+    modal,
+    setModal,
+    createTodo,
+    openModal,
   }
   //return
   return <TodoContext.Provider value={data}>{children}</TodoContext.Provider>

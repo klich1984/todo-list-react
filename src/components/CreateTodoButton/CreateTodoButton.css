@@ -10,11 +10,21 @@
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background-color: #ff5959;
+  background-color: var(--btn-color);
   border: none;
   box-shadow: -1px 3px 4px rgb(0 0 0 / 40%);
   cursor: pointer;
-  color: #fff;
+  color: var(--color-white);
   font-size: 3rem;
   line-height: 70px;
+  transition: all 0.3s ease-in;
+  z-index: 99;
+}
+
+.todo__button--btn.open-modal {
+  position: absolute;
+  bottom: 2rem;
+  color: var(--btn-color);
+  background-color: var(--color-white);
+  transform: rotate(45deg);
 }
