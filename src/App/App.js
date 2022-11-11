@@ -9,6 +9,7 @@ import TodoSearch from '../components/TodoSearch/TodoSearch'
 import { useContext } from 'react'
 import TodoContext from '../context/TodosContext'
 import Modal from '../components/Modal/Modal'
+import TodoForm from '../components/TodoForm/TodoForm'
 
 function App() {
   const { error, loading, resultList, completeTask, handleDelete, modal } =
@@ -44,7 +45,11 @@ function App() {
 
       <CreateTodoButton />
 
-      {modal && <Modal>Hello</Modal>}
+      {modal && (
+        <Modal>
+          <TodoForm />
+        </Modal>
+      )}
     </main>
   )
 }

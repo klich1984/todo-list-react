@@ -26,6 +26,15 @@ const TodoProvider = ({ children }) => {
     searchTodo[indexTodo].completed = true
     saveTodos(searchTodo)
   }
+  // Add Todo
+  const addTodo = (text) => {
+    const newTodos = [...todos]
+    newTodos.push({
+      completed: false,
+      text,
+    })
+    saveTodos(newTodos)
+  }
 
   // Delete Todo
   const handleDelete = (text) => {
@@ -52,8 +61,7 @@ const TodoProvider = ({ children }) => {
     })
   }
 
-  const createTodo = () => {
-    console.log('Crear todo')
+  const createTodoModal = () => {
     setModal(!modal)
     setOpenModal(!openModal)
   }
@@ -70,8 +78,9 @@ const TodoProvider = ({ children }) => {
     searchValue,
     modal,
     setModal,
-    createTodo,
+    createTodoModal,
     openModal,
+    addTodo,
   }
   //return
   return <TodoContext.Provider value={data}>{children}</TodoContext.Provider>
