@@ -2,7 +2,7 @@ import './TodoItem.css'
 
 import IconCheck from '../../assets/iconComponents/IconCheck'
 import IconDelete from '../../assets/iconComponents/IconDelete'
-import IconEdit from '../../assets/iconComponents/IconEdit'
+// import IconEdit from '../../assets/iconComponents/IconEdit'
 
 const TodoItem = ({ text, completed, onComplete, handleDelete }) => {
   return (
