@@ -1,19 +1,19 @@
 :root {
-  --font: 'Quicksand', sans-serif;
+  --font              : 'Quicksand', sans-serif;
   --primary-color-icon: #ff464690;
-  --check-color: #ff4646;
-  --btn-color: #ff5959;
-  --form-btn-color: #f07f7f;
-  --text-color: #533636;
-  --black-color: #000000;
-  --color-white: #ffffff;
+  --check-color       : #ff4646;
+  --btn-color         : #ff5959;
+  --form-btn-color    : #f07f7f;
+  --text-color        : #533636;
+  --black-color       : #000000;
+  --color-white       : #ffffff;
 }
 
 /* ****** Reset ****** */
 html {
-  box-sizing: border-box;
-  font-family: var(--font);
-  font-size: 16px;
+  box-sizing     : border-box;
+  font-family    : var(--font);
+  font-size      : 16px;
   /* Trancistion with css */
   scroll-behavior: smooth;
 }
@@ -25,14 +25,14 @@ html {
 }
 
 body {
-  margin: 0;
+  margin    : 0;
   /* avoid scroll bar */
   overflow-x: hidden;
-  color: var(--text-color);
+  color     : var(--text-color);
 }
 
 a {
-  color: var(--link-color);
+  color     : var(--link-color);
   transition: all 0.5s ease-out;
 }
 
@@ -43,7 +43,7 @@ a:hover {
 img {
   /* responsive image (image adapts to container)*/
   max-width: 100%;
-  height: auto;
+  height   : auto;
 }
 
 p {

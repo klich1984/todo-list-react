@@ -1,14 +1,14 @@
 .todo__list--container {
   margin-block-start: 2rem;
-  text-align: center;
+  text-align        : center;
 }
 
 .todo__list--container ul {
-  display: flex;
-  flex-direction: column;
+  display        : flex;
+  flex-direction : column;
   justify-content: center;
-  row-gap: 1rem;
-  max-width: 500px;
-  padding: 0;
-  margin-inline: auto;
+  row-gap        : 1rem;
+  max-width      : 500px;
+  padding        : 0;
+  margin-inline  : auto;
 }

@@ -1,5 +1,5 @@
 .todo__list--empty {
-  display: grid;
+  display    : grid;
   place-items: center;
-  color: var(--check-color);
+  color      : var(--check-color);
 }
