@@ -35,6 +35,7 @@ const TodoForm = () => {
       <h3>Agregar Nueva Tarea</h3>
       <form onSubmit={handleSubmit} className='todo__form'>
         <textarea
+          autoFocus
           cols='40'
           rows='10'
           className='todo__form--value'
