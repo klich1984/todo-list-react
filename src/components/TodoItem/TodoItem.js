@@ -17,9 +17,9 @@ const TodoItem = ({ text, completed, onComplete, handleDelete }) => {
         <p className={`todo__item--text ${completed ? 'completed' : ''}`}>{text}</p>
       </div>
       <div className='todo__item--right'>
-        <span className='todo__item--edit todo__color-icon'>
+        {/* <span className='todo__item--edit todo__color-icon'>
           <IconEdit />
-        </span>
+        </span> */}
         <span className='todo__item--del todo__color-icon' onClick={handleDelete}>
           <IconDelete />
         </span>
