@@ -4,7 +4,9 @@ An App that creates a list of tasks which you can create, marks as completed, se
 
 You can try it in the following urls
 
-[Todo List App](https://klich-todolist.netlify.app/)
+|-> [Todo List App Github Pages](https://klich-todolist.netlify.app/)
+
+|-> [Todo List App Netlify](https://klich1984.github.io/todo-list-react)
 
 ## Views
 
