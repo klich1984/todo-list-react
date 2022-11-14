@@ -37,7 +37,7 @@ const TodoForm = () => {
         <textarea
           autoFocus
           cols='40'
-          rows='10'
+          rows='5'
           className='todo__form--value'
           type='text'
           name='task'
