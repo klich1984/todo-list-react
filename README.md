@@ -1,3 +1,17 @@
+# Todo List App
+
+An App that creates a list of tasks which you can create, marks as completed, search and delete tasks, which will be stored in your local storage to persist the data.
+
+## Views
+
+### desktop
+
+![Gif](./assets/Desktop.gif)
+
+### Mobile
+
+![Gif](./assets/Mobile.gif)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
